@@ -1,8 +1,9 @@
-import { initialState, calcReducer } from "./calculator";
+import { initialState, calcReducer } from "./calc";
 
 test("1st test - input number 1 as first input", () => {
   const nextState = calcReducer(initialState, { pressed: 1 });
   console.log(nextState.current);
+
   expect(nextState.current).toBe(1);
   expect(nextState.previous).toEqual(0);
   expect(nextState.operator).toEqual(null);
@@ -13,6 +14,7 @@ test("2nd test - input number 9 as second input", () => {
     { current: 1, previous: 0, operator: null },
     { pressed: 9 }
   );
+
   expect(nextState.current).toBe(19);
   expect(nextState.previous).toEqual(0);
   expect(nextState.operator).toEqual(null);
@@ -23,9 +25,21 @@ test("3rd test - input + operator", () => {
     { current: 19, previous: 0, operator: null },
     { pressed: "+" }
   );
+
   expect(nextState.current).toBe(0);
   expect(nextState.previous).toEqual(19);
   expect(nextState.operator).toEqual("+");
+});
+
+test.each(["+", "-", "*", "/"])("should set the operator to %s", (operator) => {
+  const nextState = calcReducer(
+    { current: 19, previous: 0, operator: null },
+    { pressed: operator }
+  );
+
+  expect(nextState.current).toBe(0);
+  expect(nextState.previous).toEqual(19);
+  expect(nextState.operator).toEqual(operator);
 });
 
 test("4th test - input number 5 after + operator", () => {
@@ -33,6 +47,7 @@ test("4th test - input number 5 after + operator", () => {
     { current: 0, previous: 19, operator: "+" },
     { pressed: 5 }
   );
+
   expect(nextState.current).toEqual(5);
   expect(nextState.previous).toEqual(19);
   expect(nextState.operator).toEqual("+");
@@ -43,6 +58,7 @@ test("5th test - equal works", () => {
     { current: 5, previous: 19, operator: "+" },
     { pressed: "=" }
   );
+
   expect(nextState.current).toBe(24);
   expect(nextState.previous).toEqual(19);
   expect(nextState.operator).toEqual(null);
@@ -54,6 +70,7 @@ test("6th test - press '-' button works", () => {
     { current: 19, previous: 0, operator: null },
     { pressed: "-" }
   );
+
   expect(nextState.current).toBe(0);
   expect(nextState.previous).toEqual(19);
   expect(nextState.operator).toEqual("-");
@@ -64,6 +81,7 @@ test("7th test - subtraction equals works", () => {
     { current: 5, previous: 19, operator: "-" },
     { pressed: "=" }
   );
+
   expect(nextState.current).toBe(14);
   expect(nextState.previous).toEqual(19);
   expect(nextState.operator).toEqual(null);
@@ -74,6 +92,7 @@ test("8th test - clear", () => {
     { current: 5, previous: 19, operator: "-" },
     { pressed: "clear" }
   );
+
   expect(nextState).toEqual(initialState);
 });
 
