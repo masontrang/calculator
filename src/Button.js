@@ -1,8 +1,9 @@
 import "./Button.css";
+
+import calculator from "./Calculator";
+
 function Button(props) {
-  const value = (event) => {
-    console.log(props.value);
-  };
+  const value = (event) => {};
 
   const isOperator = (val) => {
     return !isNaN(val) || val === "." || val === "=";
