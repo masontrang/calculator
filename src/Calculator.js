@@ -50,3 +50,5 @@ function mathFunction(current, previous, operator) {
     return previous / current;
   }
 }
+
+export default Calculator;

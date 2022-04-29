@@ -9,7 +9,12 @@ const displayValue = () => {
 function App() {
   return (
     <div className="App">
-      <header className="App-header"></header>
+        <div className="display">
+          <div className="panel">
+            <div className="button"></div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

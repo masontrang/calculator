@@ -1,4 +1,5 @@
 import Button from "./Button";
+import calculator from "./Calculator";
 
 function ButtonPanel() {
   return (
