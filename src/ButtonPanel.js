@@ -1,5 +1,6 @@
 import NumberButton from "./NumberButton";
 import OperatorButton from "./OperatorButton";
+import "./ButtonPanel.css";
 
 function ButtonPanel(props) {
   const clickHandler = (value1) => {
@@ -19,13 +20,13 @@ function ButtonPanel(props) {
         <OperatorButton
           value={"+/-"}
           onClick={() => {
-            props.onButtonClick(8);
+            props.onButtonClick("+/-");
           }}
         />
         <OperatorButton
           value={"%"}
           onClick={() => {
-            clickHandler(9);
+            clickHandler("%");
           }}
         />
         <OperatorButton
@@ -123,6 +124,7 @@ function ButtonPanel(props) {
           }}
         />
         <NumberButton
+          className="zero"
           value={0}
           onClick={() => {
             props.onButtonClick(0);

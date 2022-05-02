@@ -19,8 +19,9 @@ function App() {
 
   return (
     <div className="App">
-      <Display displayValue={state.current} />
+      <Display class="display" displayValue={state.current} />
       <ButtonPanel
+        class="buttonPanel"
         onButtonClick={(value) => {
           console.log("clicked", value);
           dispatch({ text: "hello there", pressed: value });
