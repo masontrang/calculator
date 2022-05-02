@@ -30,6 +30,10 @@ export function calcReducer(state, action) {
     return { current: current / 100, previous: current, operator: null };
   }
 
+  // if (pressed === ".") {
+  //   return { current: current , previous: current, operator: null };
+  // }
+
   if (operators.includes(pressed)) {
     return { current: 0, previous: current, operator: pressed };
   }

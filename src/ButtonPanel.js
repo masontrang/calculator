@@ -1,6 +1,7 @@
 import NumberButton from "./NumberButton";
 import OperatorButton from "./OperatorButton";
 import "./ButtonPanel.css";
+import "./Button.css";
 
 function ButtonPanel(props) {
   const clickHandler = (value1) => {
