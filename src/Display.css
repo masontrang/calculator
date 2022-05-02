@@ -1,13 +1,11 @@
-.component-display {
-    background-color: #858694;
+.Display{
+    background-color: #000000;
     color: white;
     text-align: right;
-    font-weight: 200;
+    font-weight: 500;
+    font-size: 3rem;
     flex: 0 0 auto;
     width: 100%;
-  }
-  
-  .component-display > div {
-    font-size: 2.5rem;
-    padding: 0.2rem 0.7rem 0.1rem 0.5rem;
+
+    
   }

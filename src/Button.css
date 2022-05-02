@@ -1,4 +1,33 @@
-.component-button {
+
+.NumberButton{
+  
+  background-color: darkgrey;
+  
+}
+
+.OperatorButton{
+  
+  background-color: orange;
+  
+
+}
+
+.NumberButton, .OperatorButton{
+  padding: 1rem;
+  margin: .125rem;
+  color: white;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  /* center all the stuff */
+  display:inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+
+/* .component-button {
   display: inline-flex;
   width: 25%;
   flex: 1 0 auto;
@@ -24,4 +53,4 @@
 .component-button.orange button {
   background-color: #f5923e;
   color: white;
-}
+} */

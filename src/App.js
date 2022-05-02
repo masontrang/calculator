@@ -1,22 +1,39 @@
 import "./App.css";
-// import ButtonPanel from "./ButtonPanel";
-// import Display from "./Display";
+import React, { useReducer } from "react";
+import ButtonPanel from "./ButtonPanel";
+import Display from "./Display";
+import { calcReducer, initialState } from "./calc.js";
+// import { calcReducer, initialState as calcInitialState } from "./calc.js";
 
-const displayValue = () => {
-  console.log("hello");
-};
+// const displayValue = () => {
+//   console.log("hello");
+// };
 
 function App() {
+  // const [display, setDisplay] = useState("0");
+
+  //dispatch runs the reducer function, whatever passed in becomes the action of the reducer
+  //useReducer() -- give reducer function and initialState
+  const [state, dispatch] = useReducer(calcReducer, initialState);
+  console.log("state", state);
+
   return (
-    // <div className="App">
-    //     <div className="display">
-    //       <div className="panel">
-    //         <div className="button"></div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
+    <div className="App">
+      <Display displayValue={state.current} />
+      <ButtonPanel
+        onButtonClick={(value) => {
+          console.log("clicked", value);
+          dispatch({ text: "hello there", pressed: value });
+          // setDisplay(value);
+        }}
+      />
+    </div>
   );
 }
+
+// function Fake() {
+//   const { state, dispatch } = useContext(Ctx);
+//   const value = useSelector((state) => state.operator);
+// }
 
 export default App;
