@@ -1,6 +1,6 @@
 import "./App.css";
-// import ButtonPanel from "./ButtonPanel";
-// import Display from "./Display";
+import ButtonPanel from "./ButtonPanel";
+import Display from "./Display";
 
 const displayValue = () => {
   console.log("hello");
@@ -8,14 +8,17 @@ const displayValue = () => {
 
 function App() {
   return (
-    // <div className="App">
-    //     <div className="display">
-    //       <div className="panel">
-    //         <div className="button"></div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
+    <div className="app">
+      <div className="calculator">
+        <div className="display">
+          <div className="prev-operand">12312346</div>
+          <div className="curr-operand">123147</div>
+        </div>
+        <div className="buttonPanel">
+          <ButtonPanel />
+        </div>
+      </div>
+    </div>
   );
 }
 
